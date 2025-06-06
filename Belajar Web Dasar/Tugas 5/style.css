@@ -1,0 +1,106 @@
+/* ===== RESET BAWAAN BROWSER ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== BODY UMUM ===== */
+body {
+  font-family: sans-serif;
+  background-color: #f0f0f0; /* Warna latar untuk konten utama */
+  color: white; /* Warna teks default */
+}
+
+/* ===== NAVBAR WRAPPER (kontainer utama) ===== */
+.navbar {
+  display: flex;
+  flex-direction: column; /* Mobile: susun ke bawah */
+}
+
+/* ===== BAGIAN ATAS NAVBAR (logo + tombol menu) ===== */
+.nav-brand {
+  display: flex;
+  justify-content: space-between; /* Logo kiri, tombol kanan */
+  align-items: center;
+  padding: 1rem;
+  background-color: #1e1e2f; /* Warna gelap untuk header */
+}
+
+/* Logo teks */
+.logo {
+  font-size: 1.2rem;
+}
+
+/* Tombol menu ☰ */
+.btn-menu {
+  font-size: 1.5rem;
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== MENU NAVIGASI (mobile: disembunyikan dulu) ===== */
+.nav-menu {
+  display: none; /* Default: disembunyikan di mobile */
+  flex-direction: column;
+  gap: 1rem;
+  background-color: #2c2c3e; /* Warna berbeda dari nav-brand */
+  padding: 1rem;
+  height: calc(100vh - 64px); /* Tinggi penuh kecuali header */
+  list-style: none;
+  overflow-y: auto; /* Jika isi banyak, bisa discroll */
+}
+
+/* Saat tombol ditekan, menu ditampilkan */
+.nav-menu.active {
+  display: flex;
+}
+
+/* Item menu navigasi */
+.nav-link {
+  padding: 0.5rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: background 0.2s ease;
+}
+
+/* Hover effect */
+.nav-link:hover {
+  background-color: #3a3a50;
+}
+
+/* ===== DESKTOP VIEW (>= 992px) ===== */
+@media (min-width: 992px) {
+  .navbar {
+    flex-direction: row; /* Susun horizontal */
+    align-items: center;
+    justify-content: space-between;
+    background-color: #1e1e2f; /* Satukan warna background */
+    padding: 0 2rem;
+    height: 64px; /* Tetapkan tinggi tetap */
+  }
+
+  .nav-brand {
+    background-color: transparent; /* Hapus warna terpisah */
+    padding: 0; /* Hapus padding tambahan */
+  }
+
+  .btn-menu {
+    display: none; /* Tombol ☰ disembunyikan di desktop */
+  }
+
+  .nav-menu {
+    display: flex !important; /* Tampilkan paksa di desktop */
+    flex-direction: row; /* Menu horizontal */
+    background-color: transparent; /* Menyatu dengan nav-brand */
+    height: auto;
+    padding: 0;
+    gap: 2rem; /* Jarak antar item */
+  }
+
+  .nav-link {
+    padding: 0.5rem 1rem;
+  }
+}
